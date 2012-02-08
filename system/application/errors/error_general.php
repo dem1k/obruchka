@@ -18,10 +18,10 @@
       <li><?php echo $message; ?></li>
       </ul>
       <p id="center">
-      <a href="/">Starseite</a>
+      <h2> <a href="/">Перейти на главную страницу</a></h2>
       <span class="clear">&nbsp;</span>
       </p>
-      <p id="rights">&copy; Kleidersalon Elena 2011 All rights reserved</p>
+      <p id="rights">&copy; Обручка 2012 All rights reserved</p>
 
       </div>
     </div>

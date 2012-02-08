@@ -214,7 +214,7 @@
             Описание
         </td>
         <td>
-            <input type="text" size="32" name="description" value="<?=set_value("description")?>"/>
+            <textarea  name="description" ><?=set_value("description")?>"</textarea>
         </td>
     </tr>
     <tr>

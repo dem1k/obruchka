@@ -12,26 +12,6 @@ $config['permission'] = array(
             'edit_product'=>'Редактирование заказанных товаров'
         )
     ),
-    'staticpage' => array(
-        'name' => 'Статичные страницы',
-        'methods' => array(
-            'index' => 'Просмотр списка',
-            'view' => 'Детальный просмотр',
-            'edit'=>'Редактирование',
-            'create'=>'Добавление',
-            'delete'=>'Удаление',
-        )
-    ),
-    'works' => array(
-        'name' => 'Смотрим на работу',
-        'methods' => array(
-            'index' => 'Просмотр списка',
-            'view' => 'Детальный просмотр',
-            'edit'=>'Редактирование',
-            'create'=>'Добавление',
-            'delete'=>'Удаление',
-        )
-    ),
     'general' => array(
         'name' => 'Главная',
         'methods' => array(
@@ -45,15 +25,6 @@ $config['permission'] = array(
             'create' => 'Создание',
             'edit' => 'Редактирование',
             'delete'=>'Удаление',
-        )
-    ),
-    'currency' => array(
-        'name' => 'Валюты',
-        'methods' => array(
-            'index' => 'Просмотр списка',
-            'create' => 'Создание',
-            'edit' => 'Редактирование',
-            'delete'=> 'Удаление'
         )
     ),
 );

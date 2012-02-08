@@ -54,7 +54,7 @@ $route['scaffolding_trigger'] = '';
 */
 //$route['changelink/change'] = 'client/changelink/change';
 $route['upload'] = 'admin/media/uploadFile';
-$route['admin/media/upload.php'] = 'admin/media/upload';
+$route['article/:any'] = 'client/article/show/';
 $route['(?!' . preg_quote(BO_URL) . ')(.+)'] = 'client/$1';
 $route['(' . preg_quote(BO_URL) . '/.+)']     = '$1';
 $route[preg_quote(BO_URL)]          = 'admin/auth/login';

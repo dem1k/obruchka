@@ -1,3 +1,59 @@
+
+<script type="text/javascript" src="/assets/js/plupload/js/plupload.full.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var uploader_big = new plupload.Uploader({
+            runtimes : 'html5,flash',
+            browse_button : 'pickfiles_big',
+            container : 'container_big',
+            max_file_size : '3mb',
+            chunk_size : '500kb',
+            unique_names:true,
+            url : '/admin/article/upload',
+            flash_swf_url : '/plupload/js/plupload.flash.swf',
+            filters : [
+                {
+                    title : "Image files",
+                    extensions : "jpg,gif,png,tif"
+                },
+
+            ],
+        });
+        uploader_big.bind('Init', function(up, params) {
+            $('#filelist_big').html("<div>Current runtime: " + params.runtime + "</div>");
+        });
+        uploader_big.init();
+        uploader_big.bind('FilesAdded', function(up, files) {
+            $.each(files, function(i, file) {
+                $('#filelist_big').append(
+                '<div id="' + file.id + '">' +
+                    file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+                    '</div>');
+            });
+            uploader_big.start();
+
+            up.refresh(); // Reposition Flash/Silverlight
+        });
+        uploader_big.bind('UploadProgress', function(up, file) {
+            $('#' + file.id + " b").html(file.percent + "%");
+        });
+        uploader_big.bind('Error', function(up, err) {
+            $('#filelist_big').append("<div>Error: " + err.code +
+                ", Message: " + err.message +
+                (err.file ? ", File: " + err.file.name : "") +
+                "</div>"
+        );
+
+            up.refresh(); // Reposition Flash/Silverlight
+        });
+        uploader_big.bind('FileUploaded', function(up, file) {
+            $('#' + file.id + " b").html("100%");
+            $('#container_big').html('<a href="/uploads/articles/'+file.target_name+'" target="_blank"><img height="200px" src="/uploads/articles/'+file.target_name+'"></a>\n\
+\n\
+<input type="hidden" name="image" value="'+file.target_name+'" />');
+        });
+    });
+</script>
 <script type="text/javascript">
     tinyMCE.init({
         // General options
@@ -86,7 +142,14 @@
             Картинка
         </td>
         <td>
-            <input type="file" name="picture" value="<?=set_value('picture')?>" />
+            <div id="container_big">
+                <img height="200px" src="/uploads/articles/<?=$article['image']?>"/>
+                <input type="hidden" name="image" value="<?=$article['image']?>" />
+                <div id="filelist_big">wait...</div>
+                <br />
+                <a id="pickfiles_big" href="#">[Выбрать]</a>
+                <div id=""></div>
+            </div>
         </td>
     </tr>
 </table>

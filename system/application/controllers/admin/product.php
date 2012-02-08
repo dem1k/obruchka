@@ -9,13 +9,11 @@ class Product extends Controller {
     }
 
     function index() {
-        redirect('');
-//        $data['template'] = 'admin/product/view';
-//        $data['res'] = $this->router->fetch_class();
-//
-//        $product = $this->product->get_all();
-//        $data['product'] = $product;
-//        $this->load->view('/admin/main', $data);
+//        redirect('');
+        $data['template'] = 'admin/product/view';
+        $data['res'] = $this->router->fetch_class();
+        $data['product'] = $this->product->getAll();
+        $this->load->view('/admin/main', $data);
     }
 
     function create() {
@@ -26,23 +24,21 @@ class Product extends Controller {
         $data['classes']=$this->product->getClasses();
         $data['metals']=$this->product->getMetals();
         $data['rocks']=$this->product->getRocks();
-        $this->form_validation->set_rules('name', 'Название', 'trim|required|min_length[2]|xss_clean');
-        $this->form_validation->set_rules('collection', 'Коллекция', 'trim|min_length[1]|max_length[2]|numeric|xss_clean');
-        $this->form_validation->set_rules('class', 'Группа товара', 'trim|numeric|min_length[1]|max_length[2]');
-        $this->form_validation->set_rules('metal', 'Металл', 'trim|numeric|xss_clean|min_length[1]|max_length[2]');
-        $this->form_validation->set_rules('color1', 'Цвет металла 1', 'trim|numeric|xss_clean|min_length[1]|max_length[2]');
-//        $this->form_validation->set_rules('color2', 'Цвет металла 2', 'trim|numeric|xss_clean|max_length[2]');
-//        $this->form_validation->set_rules('color3', 'Цвет металла 3', 'trim|numeric|xss_clean|max_length[2]');
-        $this->form_validation->set_rules('rock', 'Вставка', 'trim|numeric|xss_clean|max_length[2]');
+        $this->form_validation->set_rules('name', 'Название', 'trim|min_length[2]|xss_clean');
+        $this->form_validation->set_rules('collection', 'Коллекция', 'trim|required|min_length[1]|max_length[2]|numeric|xss_clean');
+        $this->form_validation->set_rules('class', 'Группа товара', 'trim|required|numeric|min_length[1]|max_length[2]');
+        $this->form_validation->set_rules('metal', 'Металл', 'trim|required|numeric|xss_clean|min_length[1]|max_length[2]');
+        $this->form_validation->set_rules('color1', 'Цвет металла ', 'trim|required|numeric|xss_clean|min_length[1]|max_length[2]');
+        $this->form_validation->set_rules('rock', 'Вставка', 'trim|required|numeric|xss_clean|max_length[2]');
         $this->form_validation->set_rules('m_art', 'муж. артикул', 'trim|required|xss_clean|callback_art_check');
         $this->form_validation->set_rules('m_weight', 'муж. вес', 'trim|required|numeric|xss_clean');
         $this->form_validation->set_rules('f_art', 'жен. артикул', 'trim|required|xss_clean|callback_art_check');
         $this->form_validation->set_rules('f_weight', 'жен. вес', 'trim|required|numeric|xss_clean');
-        $this->form_validation->set_rules('new', 'новинка', 'trim|required|numeric|xss_clean');
-        $this->form_validation->set_rules('fan', 'популярность', 'trim|required|numeric|xss_clean');
-        $this->form_validation->set_rules('description', 'Описание', 'trim|required|xss_clean|max_length[32]');
-        $this->form_validation->set_rules('image_big', 'картинка', 'trim|xss_clean');
-        $this->form_validation->set_rules('image_small', 'картинка', 'trim|xss_clean');
+        $this->form_validation->set_rules('new', 'новинка', 'trim|numeric|xss_clean');
+        $this->form_validation->set_rules('fan', 'популярность', 'trim|numeric|xss_clean');
+        $this->form_validation->set_rules('description', 'Описание', 'trim|xss_clean|max_length[128]');
+        $this->form_validation->set_rules('image_big', 'картинка', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('image_small', 'картинка', 'trim|required|xss_clean');
 
 
         if ($this->input->post('action', '') == 'save')
@@ -75,7 +71,7 @@ class Product extends Controller {
         }else {
             $this->load->view('admin/main', $data);
         }
-        
+
     }
     function edit() {
         $id = $this->uri->segment(4, '');
@@ -89,23 +85,21 @@ class Product extends Controller {
             $data['classes']=$this->product->getClasses();
             $data['metals']=$this->product->getMetals();
             $data['rocks']=$this->product->getRocks();
-            $this->form_validation->set_rules('name', 'Название', 'trim|required|min_length[2]|xss_clean');
-            $this->form_validation->set_rules('collection', 'Коллекция', 'trim|min_length[1]|max_length[2]|numeric|xss_clean');
-            $this->form_validation->set_rules('class', 'Группа товара', 'trim|numeric|min_length[1]|max_length[2]');
-            $this->form_validation->set_rules('metal', 'Металл', 'trim|numeric|xss_clean|min_length[1]|max_length[2]');
-            $this->form_validation->set_rules('color1', 'Цвет металла 1', 'trim|numeric|xss_clean|min_length[1]|max_length[2]');
-//            $this->form_validation->set_rules('color2', 'Цвет металла 1', 'trim|numeric|xss_clean|max_length[2]');
-//            $this->form_validation->set_rules('color3', 'Цвет металла 1', 'trim|numeric|xss_clean|max_length[2]');
-            $this->form_validation->set_rules('rock', 'Вставка', 'trim|numeric|xss_clean|max_length[2]');
-            $this->form_validation->set_rules('m_art', 'муж. артикул', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('name', 'Название', 'trim|min_length[2]|xss_clean');
+            $this->form_validation->set_rules('collection', 'Коллекция', 'trim|required|min_length[1]|max_length[2]|numeric|xss_clean');
+            $this->form_validation->set_rules('class', 'Группа товара', 'trim|required|numeric|min_length[1]|max_length[2]');
+            $this->form_validation->set_rules('metal', 'Металл', 'trim|required|numeric|xss_clean|min_length[1]|max_length[2]');
+            $this->form_validation->set_rules('color1', 'Цвет металла ', 'trim|required|numeric|xss_clean|min_length[1]|max_length[2]');
+            $this->form_validation->set_rules('rock', 'Вставка', 'trim|required|numeric|xss_clean|max_length[2]');
+            $this->form_validation->set_rules('m_art', 'муж. артикул', 'trim|required|xss_clean|callback_art_check');
             $this->form_validation->set_rules('m_weight', 'муж. вес', 'trim|required|numeric|xss_clean');
-            $this->form_validation->set_rules('f_art', 'жен. артикул', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('f_art', 'жен. артикул', 'trim|required|xss_clean|callback_art_check');
             $this->form_validation->set_rules('f_weight', 'жен. вес', 'trim|required|numeric|xss_clean');
-            $this->form_validation->set_rules('new', 'новинка', 'trim|required|numeric|xss_clean');
-            $this->form_validation->set_rules('fan', 'популярность', 'trim|required|numeric|xss_clean');
-            $this->form_validation->set_rules('description', 'Описание', 'trim|required|xss_clean|max_length[32]');
-            $this->form_validation->set_rules('image_big', 'картинка', 'trim|xss_clean');
-            $this->form_validation->set_rules('image_small', 'картинка', 'trim|xss_clean');
+            $this->form_validation->set_rules('new', 'новинка', 'trim|numeric|xss_clean');
+            $this->form_validation->set_rules('fan', 'популярность', 'trim|numeric|xss_clean');
+            $this->form_validation->set_rules('description', 'Описание', 'trim|xss_clean|max_length[128]');
+            $this->form_validation->set_rules('image_big', 'картинка', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('image_small', 'картинка', 'trim|required|xss_clean');
             if ($this->input->post('action', '') == 'save') {
                 if ($this->form_validation->run() == FALSE) {
                     $this->load->view('admin/main',$data);
@@ -117,8 +111,6 @@ class Product extends Controller {
                             'class_id'=>set_value('class'),
                             'metal_id'=>set_value('metal'),
                             'color1_id'=>set_value('color1'),
-//                            'color2_id'=>set_value('color2'),
-//                            'color3_id'=>set_value('color3'),
                             'rock_id'=>set_value('rock'),
                             'm_art'=>set_value('m_art'),
                             'm_weight'=>set_value('m_weight'),
@@ -148,8 +140,6 @@ class Product extends Controller {
             $data['res'] = $this->router->fetch_class();
             $data['product']=$product=$this->product->getById($id);
             $data['color1']=$this->product->getColorsById($product['color1_id']);
-//            $data['color2']=array();//$this->product->getColorsById($product['color2_id']);
-//            $data['color3']=array();//$this->product->getColorsById($product['color3_id']);
             ;
             $this->load->view('admin/main', $data);
         }

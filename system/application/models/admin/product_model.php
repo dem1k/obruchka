@@ -63,7 +63,7 @@ class Product_model extends Model {
         return $this->db->select()
                 ->from('products')
                 ->get()
-                ->result_array()
+                ->result()
         ;
 
     }

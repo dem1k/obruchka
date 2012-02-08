@@ -14,7 +14,7 @@
     </div>
     <div class="gifts_menu">
         <ul>
-            <li class="width150">
+            <li id="discont"class="width150">
                 <div class="hidden_gift">
                     <form action="#">
                         <fieldset>
@@ -23,7 +23,7 @@
                                 <label for="email">Оставьте Ваш e-mail и получите подарок!</label>
                                 <input class="input_email" type="text" name="email" title="Ваш e-mail" value="Ваш e-mail"/>
                             </div>
-                            <div class="button">
+                           <div class="button">
                                 <input class="btn_ok" type="submit" value="OK"/>
                             </div>
                         </fieldset>
@@ -32,7 +32,7 @@
                 <a href="#">Дисконт в подарок</a>
             </li>
             <li  class="width160">
-                <div class="hidden_gift">
+                <!--div class="hidden_gift">
                     <form action="#">
                         <fieldset>
                             <strong>Подарочная карта</strong>
@@ -45,11 +45,11 @@
                             </div>
                         </fieldset>
                     </form>
-                </div>
-                <a href="#">Подарочная карта</a>
+                </div-->
+                <a href="/articles/gift_card">Подарочная карта</a>
             </li>
             <li class="width160">
-                <div class="hidden_gift">
+                <!--div class="hidden_gift">
                     <form action="#">
                         <fieldset>
                             <strong>Дисконтная программа</strong>
@@ -57,16 +57,16 @@
                                 <label for="email">Оставьте Ваш e-mail и получите подарок!</label>
                                 <input class="input_email" type="text" name="email" title="Ваш e-mail" value="Ваш e-mail"/>
                             </div>
-                            <div class="button">
+                           <div class="button">
                                 <input class="btn_ok" type="submit" value="OK"/>
                             </div>
                         </fieldset>
                     </form>
-                </div>
-                <a href="#">Дисконтная программа</a>
+                </div-->
+                <a href="/articles/discount">Дисконтная программа</a>
             </li>
             <li class="width150">
-                <div class="hidden_gift">
+                <!--div class="hidden_gift">
                     <form action="#">
                         <fieldset>
                             <strong>Новинки</strong>
@@ -79,8 +79,8 @@
                             </div>
                         </fieldset>
                     </form>
-                </div>
-                <a class="last_right" href="#">Новинки</a>
+                </div-->
+                <a class="last_right" href="/collection/newest/">Новинки</a>
             </li>
         </ul>
         <div class="where_to_buy">
@@ -92,7 +92,13 @@
         <div class="wrap_carousel">
             <ul class="carousel">
                 <?php foreach($products_fav as $product_fav):?>
-                <li><a href="/product/<?=$product_fav?>"><img src="/assets/images/ring1.jpg" alt="модель1" title="модель1"/></a></li>
+                <? //php var_dump($product_fav);die;?>
+                <li>
+                    <a href="/product/<?=$product_fav->id?>">
+                        <!--img src="/assets/images/ring1.jpg" alt="модель1" title="модель1"/-->
+                        <img src="/uploads/products/<?=$product_fav->image_small?>" height="166" alt="<?=$product_fav->name?>" title="<?=$product_fav->id?>"/>
+                    </a>
+                </li>
                 <?php endforeach;?>
             </ul>
         </div>

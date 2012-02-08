@@ -1,18 +1,18 @@
-<?=form_open('admin/parametrs/create/'.$parametr);?>
+<?=form_open('admin/parametrs/edit/'.$parametr.'/'.$id);?>
 <h1> <?php
 
         switch ($parametr) {
-        case 'collections':echo "Создать колекцию";
+        case 'collections':echo "Изменить колекцию";
             break;
-        case 'classes':echo "Создать группу";
+        case 'classes':echo "Изменить группу";
             break;
-        case 'metals':echo "Создать метал";
+        case 'metals':echo "Изменить метал";
             break;
-        case 'colors':echo "Создать цвет";
+        case 'colors':echo "Изменить цвет";
             break;
-        case 'rocks':echo "Создать вставку";
+        case 'rocks':echo "Изменить вставку";
             break;
-        case 'category_art':echo "Создать категорию статьи";
+        case 'category_art':echo "Изменить категорию статьи";
             break;
 
         default:
@@ -21,7 +21,7 @@
 
 
 </h1>
-Введите имя <input type="text" name="name" value="<?= set_value('name')?>"/>
+Введите имя <input type="text" name="name" value="<?= set_value('name',$name)?>"/>
 <br/>
 <?=form_hidden("action","save")?>
 <input type="submit" value="Сохранить"/>

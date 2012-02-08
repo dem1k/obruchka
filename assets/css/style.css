@@ -208,7 +208,7 @@ h1{
     margin-top: 38px;
     border-left: 1px solid #dededd;
 }
-.gifts_menu ul li a:hover{
+.gifts_menu ul li #discont a:hover{
     text-decoration: none;
 }
 .last_right{
@@ -268,10 +268,10 @@ h1{
 .button{
     padding-right: 20px;
 }
-.gifts_menu li:hover .hidden_gift{  
+.gifts_menu #discont li:hover .hidden_gift{
     display: block;
 }
-.gifts_menu li:hover a{
+.gifts_menu #discont li:hover a{
     display: none;
 }
 .where_to_buy{

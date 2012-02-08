@@ -1,18 +1,23 @@
 <script>
-    $(function() {
+    $(document).ready(function() {scroll(0,0);
         $( "#tabs" ).tabs();
+        $('#tabs a').click(function(){
+            location.hash=$(this).attr('href');
+            scroll(0,0);
+        })
     });
+
 </script>
 
 <div id="tabs">
     <ul>
-        <li><a href="#tabs-1">Коллекции</a></li>
-        <li><a href="#tabs-2">Группы</a></li>
-        <li><a href="#tabs-3">Металлы</a></li>
-        <li><a href="#tabs-4">Цвета</a></li>
-        <li><a href="#tabs-5">Вставки</a></li>
+        <li><a href="#collections" >Коллекции</a></li>
+        <li><a href="#classes" >Группы</a></li>
+        <li><a href="#metals" >Металлы</a></li>
+        <li><a href="#colors" >Цвета</a></li>
+        <li><a href="#rocks" >Вставки</a></li>
     </ul>
-    <div id="tabs-1">
+    <div id="collections">
         <a class="button" href="/admin/parametrs/create/collections/">Создать колекцию</a> <br/>
         <table width="100%" border="1px solid " cellspacing="0" cellpadding="0">
             <thead>
@@ -40,7 +45,7 @@
         </table>
 
     </div>
-    <div id="tabs-2">
+    <div id="classes">
         <a class="button" href="/admin/parametrs/edit/classes/">Создать Группу</a> <br/>
         <table width="100%" border="1px solid " cellspacing="0" cellpadding="0">
             <thead>
@@ -68,7 +73,7 @@
         </table>
 
     </div>
-    <div id="tabs-3">
+    <div id="metals">
         <a class="button" href="/admin/parametrs/create/metals/">Создать металл</a> <br/>
         <table width="100%" border="1px solid " cellspacing="0" cellpadding="0">
             <thead>
@@ -98,7 +103,7 @@
         </table>
 
     </div>
-    <div id="tabs-4">
+    <div id="colors">
         <a class="button" href="/admin/parametrs/create/colors/">Создать цвет</a> <br/>
         <table width="100%" border="1px solid " cellspacing="0" cellpadding="0">
             <thead>
@@ -117,7 +122,7 @@
                     </td>
                     <td>
                         <a href="/admin/parametrs/edit/colors/<?=$color['id']?>/">Редактировать</a>
-                        <a  onclick="return confirm('Удалить цвет с ID=<?=$color['id']?>')" href="/admin/parametrs/create/colors/<?=$color['id']?>/">Удалить</a>
+                        <a  onclick="return confirm('Удалить цвет с ID=<?=$color['id']?>')" href="/admin/parametrs/delete/colors/<?=$color['id']?>/">Удалить</a>
                     </td>
                 </tr>
                 <?endforeach;?>
@@ -128,7 +133,7 @@
         </table>
 
     </div>
-    <div id="tabs-5">
+    <div id="rocks">
         <a class="button" href="/admin/parametrs/create/rocks/">Создать вставку</a> <br/>
         <table width="100%" border="1px solid " cellspacing="0" cellpadding="0">
             <thead>
@@ -145,7 +150,7 @@
                     </td>
                     <td>
                         <a href="/admin/parametrs/edit/rocks/<?=$rock['id']?>/">Редактировать</a>
-                        <a  onclick="return confirm('Удалить коллекцию с ID=<?=$rock['id']?>')" href="/admin/parametrs/delete/rocks/<?=$rock['id']?>/">Удалить</a>
+                        <a  onclick="return confirm('Удалить вставку с ID=<?=$rock['id']?>')" href="/admin/parametrs/delete/rocks/<?=$rock['id']?>/">Удалить</a>
                     </td>
                 </tr>
                 <?endforeach;?>

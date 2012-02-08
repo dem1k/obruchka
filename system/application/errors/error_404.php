@@ -10,18 +10,18 @@
 
 <body style="text-align: center">
 
-  <div class="container" style="margin-left: 30%">
+  <div class="container">
     <div id="wrapper">
       <div id="content">
       <p id="center"><h1>ERROR 404!!!</h1><br/></p>
       <ul>
-      <li><?php echo $message; ?></li>
+          <li><h2><?php echo 'Страница не найдена'//$message; ?></h2></li>
       </ul>
       <p id="center">
-      <a href="/">Starseite</a>
+      <a href="/">Перейти на главную</a>
       <span class="clear">&nbsp;</span>
       </p>
-      <p id="rights">&copy; Kleidersalon Elena 2011 All rights reserved</p>
+      <p id="rights">&copy; Обручка 2012 All rights reserved</p>
 
       </div>
     </div>

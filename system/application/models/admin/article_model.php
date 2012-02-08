@@ -1,5 +1,5 @@
 <?php
-class article_model extends Model {
+class Article_model extends Model {
 
     function getAll() {
         return $this->db
@@ -10,12 +10,29 @@ class article_model extends Model {
         $this->db->insert('articles',$data);
     }
     function getById($id) {
+        
         return $this->db
                 ->select('')
                 ->from('articles')
                 ->where('id',$id)
                 ->get()
                 ->result_array();
+    }
+    function getByCatId($cat_id) {
+
+        return $this->db
+                ->select('')
+                ->from('articles')
+                ->where('category_art',$cat_id)
+                ->get()
+                ->result_array();
+    }
+    function getBySlug($slug) {
+        return $this->db->select()
+                ->from('articles')
+                ->where('slug',$slug)
+                ->get()
+                ->row();
     }
     function updateById($data,$id) {
         $this->db

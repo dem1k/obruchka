@@ -10,7 +10,7 @@ $tab = $res ? $res : "collection";
         <li class="<?= ($tab == "collection") ? "active" : "" ?>"><a href="/admin/collection">Коллекции</a></li>
         <li class="<?= ($tab == "orders") ? "active" : "" ?>"><a href="/admin/orders">Заказы</a></li>
         <!--li class="<?=($tab == "startpage") ? "active " : "" ?>"><a href="/admin/startpage">Главная</a></li-->
-        <li class="<?= ($tab == "product/create") ? "active" : "" ?>"><a href="/admin/product/create">Создать товар</a></li>
+        <li class="<?= ($tab == "product") ? "active" : "" ?>"><a href="/admin/product">Товары</a></li>
         <li class="<?= ($tab == "parametrs") ? "active" : "" ?>"><a href="/admin/parametrs/">Параметры товара</a></li>
         <li class="<?= ($tab == "article") ? "active" : "" ?>"><a href="/admin/article">Статьи</a></li>
         <li class="<?= ($tab == "seo") ? "active" : "" ?>"><a href="/admin/seo">CEO</a></li>

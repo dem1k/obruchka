@@ -39,7 +39,7 @@ class Parametrs extends Controller {
                             'name'=>set_value('name'),
                     );
                     $this->parametrs_model-> saveByParametr($parametr,$result);
-                    redirect($parametr==category_art?'/admin/article/':'/admin/');
+                    redirect($parametr!='category_art'?'/admin/parametrs/#'.$parametr:'/admin/');
                 }
             }else {
                 $this->load->view('admin/main', $data);
@@ -50,6 +50,7 @@ class Parametrs extends Controller {
 
     function edit() {
         $parametr=$this->uri->segment(4);
+        
         if(!$parametr || !in_array($parametr, $this->parametrs)) {
             redirect('/admin/parametrs');
         }else {
@@ -58,7 +59,8 @@ class Parametrs extends Controller {
                 show_404();
             }else {
                 $name=$this->parametrs_model->getByParametrById($parametr,$id);
-                $data['template'] = 'admin/collection/edit';
+                $data['parametr']=$parametr;
+                $data['template'] = 'admin/parametrs/edit';
                 $data['res'] = $this->router->fetch_class();
                 $data['name'] = $name[0]["name"];
                 $data['id'] = $id;
@@ -72,8 +74,8 @@ class Parametrs extends Controller {
                         $result=array(
                                 'name'=>set_value('name'),
                         );
-                        $this->collection_model->updateByParametrById($parametr,$result,$id);
-                        redirect($parametr==category_art?'/admin/article/':'/admin/');
+                        $this->parametrs_model->updateByParametrById($parametr,$result,$id);
+                        redirect($parametr!='category_art'?'/admin/parametrs/#'.$parametr:'/admin/');
                     }
                 }else {
                     $this->load->view('admin/main', $data);
@@ -98,7 +100,7 @@ class Parametrs extends Controller {
                 $data['template'] = 'admin/catalog/edit_product';
                 $data['res'] = $this->router->fetch_class();
                 $this->parametrs_model->deleteByParametrById($parametr,$id) ;
-                redirect($parametr=='category_art'?'/admin/article/':'/admin/');
+                redirect($parametr!='category_art'?'/admin/parametrs/#'.$parametr:'/admin/');
             }
 
         }

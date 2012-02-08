@@ -17,7 +17,7 @@ $(function(){
 });
 </script>
 <a class="button" href="/admin/product/create">Добавить продукт</a>
-
+<br/>
 <? if (!empty($product[0])): ?>
 
 <table class="extended">
@@ -30,15 +30,15 @@ $(function(){
         </tr>
     </thead>
     <tbody>
-            <? foreach ($product as $item): ?>
+            <? foreach ($product as $prod): ?>
         <tr>
-            <td><?php echo $item->id ?></td>
-            <td><?php echo $item->name ?></td>
-            <td><?php echo $item->description ?></td>
+            <td><?php echo $prod->id ?></td>
+            <td><?php echo $prod->name ?></td>
+            <td><?php echo $prod->description ?></td>
             <td>
-                <a href="/admin/product/view/<?php echo $item->id ?>">просмотр</a>
-                <a href="/admin/product/edit/<?php echo $item->id ?>">редактировать</a>
-                <a href="/admin/product/delete/<?php echo $item->id ?>">Удалить</a>
+                <a href="/admin/product/view/<?php echo $prod->id ?>">Подробно</a>
+                <a href="/admin/product/edit/<?php echo $prod->id ?>">Редактировать</a>
+                <a href="/admin/product/delete/<?php echo $prod->id ?>">Удалить</a>
             </td>
         </tr>
             <? endforeach; ?>

@@ -210,7 +210,7 @@
             Описание
         </td>
         <td>
-            <input type="text" size="32" name="description" value="<?=set_value("description",$product['description'])?>"/>
+            <textarea  name="description" ><?=set_value("description",$product['description'])?>"</textarea>
         </td>
     </tr>
     <tr>
@@ -221,7 +221,7 @@
             <div id="container_big">
                 <img height="200px" src="/uploads/products/<?=$product['image_big']?>"/>
                 <input type="hidden" name="image_big" value="<?=$product['image_big']?>" />
-                <div id="filelist_big">No runtime found.</div>
+                <div id="filelist_big">wait...</div>
                 <br />
                 <a id="pickfiles_big" href="#">[Выбрать]</a>
                 <div id=""></div>
@@ -236,7 +236,7 @@
             <div id="container_small">
                 <img height="100px"src="/uploads/products/<?=$product['image_small']?>"/>
                 <input type="hidden" name="image_small" value="<?=$product['image_small']?>" />
-                <div id="filelist_small">No runtime found.</div>
+                <div id="filelist_small">wait...</div>
                 <br />
                 <a id="pickfiles_small" href="#">[Выбрать]</a>
                 <div id=""></div>
