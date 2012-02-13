@@ -37,11 +37,13 @@ a:hover{
 }
 input{
     border: none;
-    font:12px 'Times New Roman',Times,serif;
 }
 h1{
     font-size: 18px;
-    padding-bottom: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 6px;
+    text-transform: uppercase;
 }
 /*==================header===================================*/
 .header, .wrapper, .footer, .wrap_footer, .wrap_header{
@@ -56,7 +58,7 @@ h1{
     background:url(../images/bg_wrapper.png) repeat-y;
 }
 .header{
-    height:140px;
+    height:135px;
     width: 980px;
 }
 .top_header{
@@ -64,7 +66,7 @@ h1{
     overflow: hidden;
     background-color: #fdf9f3;
     height: 88px;
-    background:url(../images/bg_header.jpg) repeat-y;
+    background:url(../images/bg_header.jpg) no-repeat;
 
 }
 .left_header, .bottom_header ul li{
@@ -100,7 +102,7 @@ h1{
     float:right;
 }
 .top_header .right_header{
-    padding-top: 35px;
+    padding-top: 45px;
 }
 .arrival{
     color: #393536;
@@ -117,28 +119,26 @@ h1{
 }
 .forma_search{
     float:right;
-    width: 210px;
+    width: 70px;
     position: relative;
 }
 .input_search{
-    color:#535252;
-    width:110px;
+    color:#686767;
+    width:44px;
     height:20px;
-    padding:0 8px 0 8px;
+    padding:0 0 0 16px;
     float:left;
-    background:url(../images/search_input.png) no-repeat;
+    background:url(../images/search.png) no-repeat;
 }
+
 .button_search{
-    background:url(../images/search_btn.png) 0 0 no-repeat;
-    width: 71px;
-    height: 20px;
+    background:url(../images/btn_search.png) 0 0 no-repeat;
+    position: absolute;
+    top: 4px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
     cursor: pointer;
-    margin-left: 5px;
-    float: left;
-    color: #fff;
-    line-height: 20px;
-    padding-bottom: 3px;
-    font-size: 14px;
 }
 .bottom_header{
     overflow: hidden;
@@ -208,23 +208,31 @@ h1{
     margin-top: 38px;
     border-left: 1px solid #dededd;
 }
-.gifts_menu li.ribbon{
-    position: relative;
-}
-.gifts_menu li.ribbon a{
-    padding: 13px 25px 0 18px;
-}
-.ribb{
-    width: 75px;
-    height: 70px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    background: url(../images/ribbon.png) no-repeat;
+.gifts_menu ul li #discont a:hover{
+    text-decoration: none;
 }
 .last_right{
     border-right: 1px solid #dededd;
+}
+.hidden_gift{
+    display: none;
+}
+.hidden_gift strong{
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #4f4e4e;
+    display: block;
+    height: 27px;
+    text-align: center;
+    line-height: 12px;
+    padding: 6px 18px 5px;
+}
+.hidden_gift .white_bg{
+    height: 57px;
+    background: url(../images/under_text.png) 0 0 repeat-x;
+    text-align: center;
+    padding-bottom: 5px; 
+    border-left: 1px solid #dededd;
 }
 .white_bg label, .footer label{
     line-height: 12px;
@@ -242,6 +250,7 @@ h1{
     text-align: center;
     line-height: 20px;
 }
+
 .btn_ok{
     color:#fff;
     font-size: 14px;
@@ -259,6 +268,12 @@ h1{
 .button{
     padding-right: 20px;
 }
+.gifts_menu #discont li:hover .hidden_gift{
+    display: block;
+}
+.gifts_menu #discont li:hover a{
+    display: none;
+}
 .where_to_buy{
     background:url(../images/where_to_buy.jpg) 0 0 no-repeat;
     width: 301px;
@@ -268,7 +283,7 @@ h1{
 }
 .popular_models{
     clear: both;
-    padding: 20px 18px; 
+    padding: 20px 18px; 0 18px; 
     position: relative;
     overflow: hidden;
 }
@@ -578,7 +593,7 @@ h1{
 .show_ring{
     background:url(../images/bg_big_ban1.png) 0 0 no-repeat;  
     width: 895px;
-    min-height: 485px;
+    height: 485px;
     position: absolute;
     top: 0;
     left: 0;
@@ -734,8 +749,7 @@ h1{
 .breadcrumbs{
     font-size: 14px;
     overflow: hidden;
-    padding: 0 0 15px 0;
-    color: #535252;
+    padding: 20px 0;
 }
 .breadcrumbs li{
     float: left;
@@ -759,38 +773,27 @@ h1{
 .breadcrumbs li a:hover{
     text-decoration: none;
 }
-.top_bg_article{
-    background:url(../images/top_bg_art.png) 15px 20px no-repeat;
-    padding: 27px 15px 0 15px;
-
-}
-.btm_bg_article{
-    background:url(../images/btm_bg_art.png) 0 100% no-repeat;  
-    padding-bottom: 10px;
-}
 .content_article{
-    overflow: hidden;
+    padding: 0 18px;
 }
 .article {
-    padding: 3px 0 20px 0;
+    padding: 20px 0;
     overflow: hidden;
 }
 .article p{
     font-size: 14px;
-    padding: 0 0 5px 40px;
+    padding-bottom: 5px;
 }
 .article img{
     float: right;
-    padding: 10px 0 5px 20px;
+    padding: 0 0 5px 20px;
 }
 .nav_articles{
+    overflow: hidden;
     /*text-align: center; если не нужно под ИЕ7, то раскомментировать и убрать ширину и margin*/
-    width: 450px;
+    width: 360px;
     margin: 0 auto;
-    padding: 30px 0 18px 0;
-}
-.nav_articles ul{
-    height: 28px;
+    padding-bottom: 35px;
 }
 .nav_articles li{
     /*display: inline-block;  если не нужно под ИЕ7, то раскомментировать и убрать float*/
@@ -799,50 +802,47 @@ h1{
 .nav_articles li a, .nav_articles li a strong{
     text-decoration: underline;
     float: left;
-    text-transform: uppercase;
 }
 .nav_arrows span{
     float: left;
-    height: 36px;
-    width: 31px;
-    background-image: url(../images/art_nav_arrows.png);
+    height: 9px;
+    width: 25px;
+    background-image: url(../images/arrows.png);
     background-repeat: no-repeat;
-    margin:-10px 10px 0 10px;
+    margin-top:4px;
 }
 .nav_arrows strong{
     font-weight: 400;
 }
 .prev_article{
-    background-position: 50% 0;
+    background-position: 50% -9px;
 }
 .next_article{
-    background-position: 50% -36px;
+    background-position: 50% 0;
 }
 .nav_articles li a:hover strong, .nav_articles li a:hover{
     text-decoration: none;
 }
 .articles_banners{
-    padding: 20px 0 5px 0;
+    padding: 20px 0 10px 0;
     overflow: hidden;
 }
 .articles_banners li{
     position:  relative;
-    margin-left: 30px;
-    width: 280px;
-    height: 225px;
+    height: 140px;
 }
 .articles_banners span{
     position: absolute;
     bottom: 0;
     left: 0;
     display: block;
-    padding: 5px 10px;
+    padding: 10px;
     text-align: center;
-    height: 55px;
-    width: 259px;
-    border: 1px solid #d8d9da;
-    background-color: #fff;
-    font-size: 14px;
+    height: 37px;
+    width: 278px;
+    border-left: 1px solid #d8d9da;
+    border-right: 1px solid #d8d9da;
+    background: url(../images/under_text.png) 0 0 repeat-x;
 }
 .articles_banners li a {
     color: #2c69e6;
@@ -851,21 +851,13 @@ h1{
 .articles_banners li a:hover {
     text-decoration: none;
 }
-.art_bans{
-    padding: 0 20px;
-}
-.art_bans .banner_action h2{
-    padding-left: 0;
-}
 /*================registration=============*/
+.wrapper.registration{
+    padding-top: 30px;
+}
 .show_ring.static{
     position:static;
-    width: 861px;
-    padding: 15px 65px 0 25px;
-    background: url(../images/art_bg_repeat.png) 0 0 repeat-y;
-}
-.registration .show_ring.static{
-    width: 895px;
+    padding: 15px 45px 20px 40px;
 }
 .show_ring.static .picture{
     border-bottom: none;
@@ -873,6 +865,10 @@ h1{
     bottom: 0;
     right:0;
     height: 352px;
+}
+.show_ring.static .breadcrumbs{
+    padding: 0 0 40px 0;
+    font-size: 12px;
 }
 .show_ring.static .left_part{
     width: 505px;
@@ -911,68 +907,4 @@ h1{
 }
 .show_ring.static .right_part{
     height: 470px;
-}
-/*------------------all_articles---------------*/
-.left_column .banner_action{
-    padding: 0;
-}
-.left_column .articles_banners{
-    padding: 0;
-}
-.left_column .banner_action li{
-    float: none;
-}
-/*------------maps---------------*/
-.bg_maps{
-    background: url(../images/bg_big_ban1.png) 0 0 no-repeat;
-    width: 930px;
-    height: 490px;
-    padding: 15px 25px 0 35px;
-    overflow: hidden;
-}
-.bg_maps .left_text{
-    float: left;
-    width: 230px;
-    overflow: hidden;
-}
-.map_swf{
-    margin-top: -20px;
-}
-.map_swf, .map_img{
-    float: right;
-}
-.map_img{
-    padding: 0 20px 0 0;
-}
-.text_about{
-    border-top: 1px solid #cdbfad;
-    padding: 15px 0;
-    font-size: 14px;
-    color: #545353;
-}
-.text_about p{
-    padding-bottom: 3px;
-}
-.map_img img{
-    width: 592px;
-    height: 440px;
-}
-.map_img a{
-    display: block;
-    text-align: right;
-    font: 14px/12px Arial,Helvetica,sans-serif;
-    color: #1a3dc1;
-    text-decoration: underline;
-}
-.map_img a:hover{
-    text-decoration: none;
-}
-.left_text .back{
-    font-size: 16px;
-    padding-top: 50px;
-    display: block;
-    text-decoration: underline;
-}
-.left_text .back:hover{
-    text-decoration: none;
 }

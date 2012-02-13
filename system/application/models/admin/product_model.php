@@ -124,6 +124,11 @@ class Product_model extends Model {
                 ->update('products', $data)
         ;
     }
+    function deleteById($id) {
+        $this->db->where('id', $id);
+        $query = $this->db->delete('products');
+        return $query;
+    }
     function checkfArt($str) {
         return  $this->db->select()
                 ->from('products')
@@ -142,123 +147,5 @@ class Product_model extends Model {
 
 
 
-    function get_last_id() {
-        $this->db->select('id')->from('products')->order_by('id', 'DESC')->limit(1);
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function get_first_id() {
-        $this->db->select('id')->from('products')->order_by('id', 'asc')->limit(1);
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function insert_file($result) {
-        $data = array(
-                'product_id' => $result['product_id'],
-                'path' => $result['path'],
-                'name' => $result['name']
-        );
-
-        $query = $this->db->insert('img', $data);
-        return $query;
-    }
-
-    function get_one($id) {
-        $this->db->select('*')
-                ->from('products')
-                ->where('id', $id);
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function get_img($id) {
-        $this->db->select('*')
-                ->from('img')
-                ->where('product_id', $id);
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function delete_img($id) {
-        $this->db->where('product_id', $id);
-        $query = $this->db->delete('img');
-        return $query;
-    }
-
-    function update($result) {
-        $data = array(
-                'name' => $result['name'],
-                'description' => $result['description'],
-                'sku' => $result['sku'],
-                'text' => $result['text'],
-                'sort' => $result['sort'],
-                'long_text' => $result['long_text'],
-                'thumb' => $result['thumb'],
-                'id_in_price' => $result['id_in_price']
-        );
-        $query = $this->db->update('product', $data, array('id' => $result['id']));
-        return $query;
-    }
-
-    function delete_product($id) {
-        $this->db->where('id', $id);
-        $query = $this->db->delete('product');
-        return $query;
-    }
-
-    function get_all_img() {
-        $this->db->select('product_id, path')
-                ->from('img');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function get_three() {
-        $this->db->select('*')
-                ->from('product')
-                ->order_by('sort', 'asc');
-        $q = $this->db->get();
-        return $q->result();
-    }
-
-    function DeletePrice($id) {
-        $this->db->delete('product_price', array('product_id' => $id));
-    }
-
-    function GetPriceId($id, $exchange_id) {
-        $this->db->select('*')
-                ->from('product_price')
-                ->where('product_id', $id)
-                ->where('currency_id', $exchange_id);
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
-    function getPriceById($id) {
-        $this->db->select('*')
-                ->from('product_price')
-                ->where('product_id', $id);
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
-    function GetPriceByIdAndCurrency($currency_id, $product_id) {
-        $this->db->select('*')
-                ->from('product_price')
-                ->where('product_id', $product_id)
-                ->where('currency_Id', $currency_id)
-                ->limit(1);
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
-    function GetPrice() {
-        $this->db->select('*')
-                ->from('product_price');
-        $query = $this->db->get();
-        return $query->result_array();
-    }
 
 }

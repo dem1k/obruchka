@@ -52,7 +52,7 @@
                 <div class="wrap_param drop-down" id="page-by" >
                     <div class="panel">
                         <ul class="parametrs">
-                            <li class="active"><a class="pg20" href="#">20 колец</a></li>
+                            <li class="active"><a class="pg6" href="#">6 колец</a></li>
                             <li class="active"><a class="pg20" href="#">20 колец</a></li>
                             <li class="active"><a class="pg60" href="#">60 колец</a></li>
                             <li class="active"><a class="pg100" href="#">100 колец</a></li>
@@ -68,27 +68,27 @@
             <form action="#">
                 <fieldset>
                     <div class="left_part">
-                        <h2 id="name">Обручальное кольцо из золота с бриллиантами</h2>
+                        <h2 id="name"><?=$prod['name']?></h2>
                         <table>
                             <tr>
-                                <th scope="col" id="m_art"> Пусто...</th>
-                                <th scope="col" id="f_art"> Пусто...</th>
+                                <th scope="col" id="m_art"> <?=$prod['m_art']?></th>
+                                <th scope="col" id="f_art"> <?=$prod['f_art']?></th>
                             </tr>
                             <tr>
-                                <td><strong>вес:</strong> <span id="m_weight">3,0</span> г</td>
-                                <td><strong>вес:</strong> <span id="f_weight">3,0</span> г</td>
+                                <td><strong>вес:</strong> <span id="m_weight"><?=$prod['m_weight']?></span> г</td>
+                                <td><strong>вес:</strong> <span id="f_weight"><?=$prod['f_weight']?></span> г</td>
                             </tr>
                             <tr>
-                                <td><strong>вставка:</strong><br/><span class="rock">цирконий</span></td>
-                                <td><strong>вставка:</strong><br/><span class="rock">цирконий</span></td>
+                                <td><strong>вставка:</strong><br/><span class="rock"><?=$prod['rock']?></span></td>
+                                <td><strong>вставка:</strong><br/><span class="rock"><?=$prod['rock']?></span></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr class="tables_link">
-                                <td><a href="#">запомнить кольцо</a></td>
-                                <td><a href="#">запомнить кольцо</a></td>
+                                <!--td><a href="#">запомнить кольцо</a></td>
+                                <td><a href="#">запомнить кольцо</a></td-->
                             </tr>
                         </table>
                         <div class="buttons">
@@ -99,12 +99,12 @@
                     <div class="right_part">
                         <a href="#" class="btn_close" title="Закрыть">Закрыть</a>
                         <div class="picture">
-                            <img src="/assets/images/big_ring.png" alt="" />
+                            <img src="/uploads/products/<?=$prod['image_big']?>" alt="" />
                             <em class="btn_likes"><span><input type="submit" value="Мне понравилось"/></span></em>
-                            <a class="btn_rotate" href="#">Кольцо<br/>вращается</a>
+                            <!--a class="btn_rotate" href="#">Кольцо<br/>вращается</a-->
                             <div class="names_ring">
-                                <strong>к 211 22 11</strong>
-                                <strong>к 212 22 11</strong>
+                                <strong><?=$prod['m_art']?></strong>
+                                <strong><?=$prod['f_art']?></strong>
                             </div>
                         </div>
                         <div class="analog">
@@ -120,7 +120,7 @@
             </form>
         </div>
         <script>
-            $(".show_ring").hide();
+//            $(".show_ring").hide();
 
         </script>
         <div class="nav_pages">

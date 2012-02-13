@@ -20,17 +20,17 @@
                         <strong class="logo"><a href="/">Обручалочка</a></strong>
                         <div class="hot_line">
                             <span>Телефон горячей линии</span>
-                            <strong>+38 (097) 165-65-80</strong>
+                            <strong>+38 (050) 880-80-20</strong>
                         </div>
                     </div>
                     <div class="right_header">
                         <form class="forma_search" action="#">
                             <fieldset>
-                                <input class="input_search" type="text" value=""/>
-                                <input class="button_search" type="submit" value=""/>
+                                <input class="input_search" type="text" value="Поиск по артикулу" title="Поиск по артикулу"/>
+                                <input class="button_search" type="submit" value="Найти"/>
                             </fieldset>
                         </form>
-                        <a href="#" class="arrival">Войти</a>
+                        <!--a href="#" class="arrival">Войти</a-->
                     </div>
                 </div>
                 <div class="bottom_header">
@@ -38,17 +38,17 @@
                         <div class="main_menu">
                             <ul>
                                 <li><a class="collection" href="/collection/">Коллекция</a></li>
-                                <li><a href="#">Магазины</a></li>
-                                <li><a href="#">Новинки</a></li>
-                                <li><a href="#">Акции</a></li>
+                                <li><a href="/map/">Магазины</a></li>
+                                <li><a href="/collection/new">Новинки</a></li>
+                                <li><a href="/articles/discount">Акции</a></li>
                                 <li><a href="/article/">Статьи</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="right_header">
                         <ul>
-                            <li><a href="#" onclick="return false">Мне понравилось&nbsp;(<span>2</span>)</a></li>
-                            <li><a class="no_background" href="#">Корзина&nbsp;(<span>1</span>)</a></li>
+                            <!--li><a href="#" onclick="return false">Мне понравилось&nbsp;(<span>2</span>)</a></li>
+                            <li><a class="no_background" href="#">Корзина&nbsp;(<span>1</span>)</a></li-->
                         </ul>
                     </div>
                 </div>

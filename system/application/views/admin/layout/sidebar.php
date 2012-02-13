@@ -13,6 +13,7 @@ $tab = $res ? $res : "collection";
         <li class="<?= ($tab == "product") ? "active" : "" ?>"><a href="/admin/product">Товары</a></li>
         <li class="<?= ($tab == "parametrs") ? "active" : "" ?>"><a href="/admin/parametrs/">Параметры товара</a></li>
         <li class="<?= ($tab == "article") ? "active" : "" ?>"><a href="/admin/article">Статьи</a></li>
+        <li class="<?= ($tab == "map") ? "active" : "" ?>"><a href="/admin/map">Карта</a></li>
         <li class="<?= ($tab == "seo") ? "active" : "" ?>"><a href="/admin/seo">CEO</a></li>
         <li class="<?= ($tab == "contacts") ? "active" : "" ?>"><a href="/admin/contacts">Контакты</a></li>
         <li class="<?= ($tab == "emails") ? "active" : "" ?>"><a href="/admin/emails">Email-s</a></li>

@@ -31,7 +31,7 @@ $(function() {
         filters : [
         {
             title : "Image files",
-            extensions : "jpg,gif,png,tif"
+            extensions : "jpg,jpeg,gif,png,tif"
         },
 
         ],

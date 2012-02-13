@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map>
+	<town name="Донецк" url="7" x="450" y="200"/>
+	<town name="Киев" url="8" x="300" y="180"/>
+	<town name="Одесса" url="9" x="300" y="350"/>
+</map>

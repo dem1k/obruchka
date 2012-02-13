@@ -52,9 +52,17 @@ $route['scaffolding_trigger'] = '';
 /*
 * Правила преобразования УРЛов для ListIt.
 */
-//$route['changelink/change'] = 'client/changelink/change';
-$route['upload'] = 'admin/media/uploadFile';
+//$route['upload'] = 'admin/media/uploadFile';
+$route['contacts'] = 'client/map/index';
+$route['product/:num'] = 'client/product/index';
+$route['collection/new'] = 'client/collection';
+
 $route['article/:any'] = 'client/article/show/';
+$route['/map/map.xml'] = 'client/map/xml_map/';
+$route['map/map.xml'] = 'client/map/xml_map/';
+$route['map.xml'] = 'client/map/xml_map/';
+//$route['map/xml_map'] = 'client/map/xml_map/';
+$route['map/:any'] = 'client/map/city/';
 $route['(?!' . preg_quote(BO_URL) . ')(.+)'] = 'client/$1';
 $route['(' . preg_quote(BO_URL) . '/.+)']     = '$1';
 $route[preg_quote(BO_URL)]          = 'admin/auth/login';

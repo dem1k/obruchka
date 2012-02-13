@@ -37,8 +37,8 @@ class Product extends Controller {
         $this->form_validation->set_rules('new', 'новинка', 'trim|numeric|xss_clean');
         $this->form_validation->set_rules('fan', 'популярность', 'trim|numeric|xss_clean');
         $this->form_validation->set_rules('description', 'Описание', 'trim|xss_clean|max_length[128]');
-        $this->form_validation->set_rules('image_big', 'картинка', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('image_small', 'картинка', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('image_big', 'картинка', 'trim|xss_clean');
+        $this->form_validation->set_rules('image_small', 'картинка', 'trim|xss_clean');
 
 
         if ($this->input->post('action', '') == 'save')
@@ -98,8 +98,8 @@ class Product extends Controller {
             $this->form_validation->set_rules('new', 'новинка', 'trim|numeric|xss_clean');
             $this->form_validation->set_rules('fan', 'популярность', 'trim|numeric|xss_clean');
             $this->form_validation->set_rules('description', 'Описание', 'trim|xss_clean|max_length[128]');
-            $this->form_validation->set_rules('image_big', 'картинка', 'trim|required|xss_clean');
-            $this->form_validation->set_rules('image_small', 'картинка', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('image_big', 'картинка', 'trim|xss_clean');
+            $this->form_validation->set_rules('image_small', 'картинка', 'trim|xss_clean');
             if ($this->input->post('action', '') == 'save') {
                 if ($this->form_validation->run() == FALSE) {
                     $this->load->view('admin/main',$data);
@@ -151,28 +151,7 @@ class Product extends Controller {
     function delete() {
         $id = $this->uri->segment(4, '');
         if (!empty($id)) {
-            $this->load->model('admin/product_model', 'product', true);
-            $product_no = $this->product->get_one($id);
-            $img_file = $this->product->get_img($id);
-            $product = $this->product->delete_product($id);
-            $img = $this->product->delete_img($id);
-            foreach ($img_file as $item) {
-                if (file_exists('./uploads/product/' . $item->path)) {
-                    unlink('./uploads/product/' . $item->path);
-                    if (file_exists('./uploads/product/thumb_' . $item->path)) {
-                        unlink('./uploads/product/thumb_' . $item->path);
-                    }
-                }
-            }
-            if (file_exists('./uploads/product/mini_images/' . $product_no[0]->thumb)) {
-                unlink('./uploads/product/mini_images/' . $product_no[0]->thumb);
-            }
-            if ($product) {
-                $this->session->set_userdata('message', 'Продукт успешно удален');
-            } else {
-                $this->session->set_userdata('message', 'Ошибка. Продукт не удален');
-            }
-            $this->product->DeletePrice($id);
+            $this->product->deleteById($id);
             redirect('/admin/product');
         }
         else {

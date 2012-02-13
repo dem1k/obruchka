@@ -83,6 +83,7 @@ class Article extends Controller {
     }
 
     function edit() {
+        $artArr=array('discount','brands','contacts');
         $id = $this->uri->segment(4);
 
         if (!empty($id)) {
@@ -91,18 +92,23 @@ class Article extends Controller {
             $data['res'] = $this->router->fetch_class();
             $data['categoryes_art'] = $this->parametrs_model->getAllByParametr('category_art');
             $this->form_validation->set_rules('name', 'Название', 'trim|required|min_length[1]|max_length[32]|xss_clean');
-            $data['article'] =$this->article_model->getById($id);
+            $data['article'] =$article=$this->article_model->getById($id);
             if ($this->input->post('action') == 'save') {
                 if ($this->form_validation->run() == FALSE) {
                     $this->load->view('admin/main', $data);
                 }else {
-                    $st=set_value('name');
-                    $st = strtr($st, $this->converter);
-                    $slug = strtolower($st);
-                    $slug = preg_replace("/[^a-z0-9\s-]/", "", $slug);
-                    $slug = trim(preg_replace("/[\s-]+/", " ", $slug));
-                    $slug = trim(substr($slug, 0, 64));
-                    $slug = preg_replace("/\s/", "-", $slug);
+                    if( !in_array($article->slug, $artArr)) {
+                        $st=set_value('name');
+                        $st = strtr($st, $this->converter);
+                        $slug = strtolower($st);
+                        $slug = preg_replace("/[^a-z0-9\s-]/", "", $slug);
+                        $slug = trim(preg_replace("/[\s-]+/", " ", $slug));
+                        $slug = trim(substr($slug, 0, 64));
+                        $slug = preg_replace("/\s/", "-", $slug);
+                    }
+                    else {
+                        $slug=$article->slug;
+                    }
 
 
                     $result=array(

@@ -42,7 +42,7 @@
                 <h3>О нас</h3>
                 <ul>
                     <li><a href="/article/brands">Представленные бренды</a></li>
-                    <li><a href="/stores">Магазины сети</a></li>
+                    <li><a href="/map/">Магазины сети</a></li>
                     <li><a href="/contacts">Контакты</a></li>
                 </ul>
             </div>
